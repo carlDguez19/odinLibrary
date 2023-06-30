@@ -1,1 +1,10 @@
-/*# sourceMappingURL=main.css.map */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: gray;
+  height: 300px;
+  width: 100%;
+}/*# sourceMappingURL=main.css.map */
