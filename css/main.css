@@ -31,8 +31,9 @@
   width: 400px;
   border-radius: 15px;
   left: 50%;
-  top: 50%;
+  top: -50%;
   transform: translate(-50%, -50%);
+  animation: formSlideTop 1.5s forwards;
 }
 .bookForm input {
   border: none;
@@ -44,14 +45,28 @@
 }
 .bookForm label {
   display: inline-block;
-  width: 1px;
-  text-align: left;
-  margin-right: 10px;
-  transform: translateX(10px);
-  scale: 1.75;
-}
-.bookForm label:focus {
+  width: 50px;
   text-align: right;
+  margin-right: 15px;
+  transform: translateX(10px);
+  scale: 1.2;
+}
+.bookForm .buttons {
+  display: flex;
+  gap: 20px;
+}
+.bookForm .buttons button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #111;
+  color: #335;
+  font-size: 20px;
+  box-shadow: 2px 2px 5px #111;
+}
+.bookForm .buttons button:active {
+  scale: 0.98;
+  background-color: black;
 }
 
 .header {
@@ -80,15 +95,8 @@
   color: #111;
 }
 
-@keyframes inputChange {
-  from {
-    transform: translateX(10px);
-    scale: 1.75;
-    text-align: left;
-  }
+@keyframes formSlideTop {
   to {
-    scale: 1;
-    width: 50px;
-    text-align: right;
+    top: 50%;
   }
 }/*# sourceMappingURL=main.css.map */

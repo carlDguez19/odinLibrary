@@ -32,8 +32,9 @@
     width: 400px;
     border-radius: 15px;
     left: 50%;
-    top: 50%;
+    top: -50%;
     transform: translate(-50%, -50%);
+    animation: formSlideTop 1.5s forwards;
     //visibility:hidden;
     // input, label{
     //     display: block;
@@ -49,13 +50,31 @@
     }
     label{
         display: inline-block;
-        width: 1px;
-        text-align: left;//left
-        margin-right: 10px;
+        width: 50px;
+        text-align: right;//left
+        margin-right: 15px;
         transform: translateX(10px);
-        scale: 1.75;//1.75
-        &:focus{
-            text-align: right;
+        scale: 1.2;//1.75
+        // &:focus{
+        //     //animation: inputChange 2s ease-in-out;
+        //     outline-style: none;
+        // }
+    }
+    .buttons{
+        display: flex;
+        gap: 20px;
+        button{
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: #111;
+            color: #335;
+            font-size: 20px;
+            box-shadow: 2px 2px 5px #111;
+            &:active{
+                scale: .98;
+                background-color: black;
+            }
         }
     }
 }
@@ -87,16 +106,13 @@
         }
     }
 }
-@keyframes inputChange {
+@keyframes formSlideTop{
     from{
-        transform: translateX(10px);
-        scale: 1.75;
-        text-align: left;
+        //top: -50%;
+        //transform: translateY(-50%);
     }
-
     to{
-        scale: 1;
-        width: 50px;
-        text-align: right;
+        top: 50%;
+        //transform: translateY(50%);
     }
 }
