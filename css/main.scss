@@ -8,6 +8,30 @@
     padding: 0;
 }
 
+.overlay{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background: black;
+    opacity: .8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //visibility: hidden;
+}
+.bookForm{
+    position: absolute;
+    display: flex;
+    background-color: #335;
+    height: 500px;
+    width: 400px;
+    border-radius: 15px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    //visibility:hidden;
+}
+
 .header{
     background-color: gray;
     height: 100px;
@@ -28,5 +52,11 @@
         font-size: 30px;
         color: #222;
         cursor: pointer;
+        li{
+           &:active{
+            scale: .95;
+            color: #111;
+           } 
+        }
     }
 }
