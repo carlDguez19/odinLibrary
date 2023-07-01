@@ -4,6 +4,7 @@
 }
 
 *{
+    font-family: 'libFont', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -22,6 +23,10 @@
 .bookForm{
     position: absolute;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
     background-color: #335;
     height: 500px;
     width: 400px;
@@ -30,6 +35,29 @@
     top: 50%;
     transform: translate(-50%, -50%);
     //visibility:hidden;
+    // input, label{
+    //     display: block;
+    // }
+    input{
+        // border-radius: 1px;
+        border: none;
+        border-bottom: solid 3px black;
+        background-color: #335;
+    }
+    input, label{
+        font-size: 20px;
+    }
+    label{
+        display: inline-block;
+        width: 1px;
+        text-align: left;//left
+        margin-right: 10px;
+        transform: translateX(10px);
+        scale: 1.75;//1.75
+        &:focus{
+            text-align: right;
+        }
+    }
 }
 
 .header{
@@ -41,7 +69,6 @@
     align-items: center;
     h1{
         padding: 20px;
-        font-family: 'libFont', Arial, Helvetica, sans-serif;
         font-size: 60px;
         color: #222;
     }
@@ -58,5 +85,18 @@
             color: #111;
            } 
         }
+    }
+}
+@keyframes inputChange {
+    from{
+        transform: translateX(10px);
+        scale: 1.75;
+        text-align: left;
+    }
+
+    to{
+        scale: 1;
+        width: 50px;
+        text-align: right;
     }
 }
