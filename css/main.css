@@ -1,6 +1,6 @@
 @font-face {
   font-family: "libFont";
-  src: url("/fonts/Library Records DEMO.ttf");
+  src: url("/fonts/Fusskia-Regular-Demo-BF649791b6b6836.ttf");
 }
 * {
   font-family: "libFont", Arial, Helvetica, sans-serif;
@@ -13,10 +13,11 @@
   height: 100vh;
   width: 100%;
   background: black;
-  opacity: 0.8;
+  opacity: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
 }
 
 .bookForm {
@@ -33,7 +34,6 @@
   left: 50%;
   top: -50%;
   transform: translate(-50%, -50%);
-  animation: formSlideTop 1.5s forwards;
 }
 .bookForm input {
   border: none;
@@ -45,11 +45,11 @@
 }
 .bookForm label {
   display: inline-block;
-  width: 50px;
+  width: 75px;
   text-align: right;
   margin-right: 15px;
   transform: translateX(10px);
-  scale: 1.2;
+  scale: 1;
 }
 .bookForm .buttons {
   display: flex;
@@ -98,5 +98,13 @@
 @keyframes formSlideTop {
   to {
     top: 50%;
+  }
+}
+@keyframes increaseOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
   }
 }/*# sourceMappingURL=main.css.map */

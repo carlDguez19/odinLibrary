@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'libFont';
-    src: url("/fonts/Library\ Records\ DEMO.ttf");
+    src: url("/fonts/Fusskia-Regular-Demo-BF649791b6b6836.ttf");
 }
 
 *{
@@ -14,11 +14,12 @@
     height: 100vh;
     width: 100%;
     background: black;
-    opacity: .8;
+    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    //visibility: hidden;
+    visibility: hidden;
+    //animation: increaseOpacity 1.5s forwards; //ADD VIA JS WHEN USER PRESSES "+ADD BOOK"
 }
 .bookForm{
     position: absolute;
@@ -34,8 +35,8 @@
     left: 50%;
     top: -50%;
     transform: translate(-50%, -50%);
-    animation: formSlideTop 1.5s forwards;
-    //visibility:hidden;
+    //animation: formSlideTop 1.5s forwards; //ADD VIA JS WHEN USER PRESSES "+ADD BOOK"
+    //visibility:hidden; SAVE JUST IN CASE
     // input, label{
     //     display: block;
     // }
@@ -50,11 +51,12 @@
     }
     label{
         display: inline-block;
-        width: 50px;
+        width: 75px;
         text-align: right;//left
         margin-right: 15px;
         transform: translateX(10px);
-        scale: 1.2;//1.75
+        scale: 1;//1.75
+        //background: red;
         // &:focus{
         //     //animation: inputChange 2s ease-in-out;
         //     outline-style: none;
@@ -114,5 +116,14 @@
     to{
         top: 50%;
         //transform: translateY(50%);
+    }
+}
+
+@keyframes increaseOpacity{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: .8;
     }
 }
