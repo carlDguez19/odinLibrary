@@ -9,7 +9,7 @@
     padding: 0;
 }
 
-.overlay{
+.overlay{//remove visibility:hidden and add animation:... on click of +add Book.....if need to remove set to null
     position: absolute;
     height: 100vh;
     width: 100%;
@@ -21,7 +21,7 @@
     visibility: hidden;
     //animation: increaseOpacity 1.5s forwards; //ADD VIA JS WHEN USER PRESSES "+ADD BOOK"
 }
-.bookForm{
+.bookForm{//add animation:... on click of +add Book .....if need to remove set to null
     position: absolute;
     display: flex;
     flex-direction: column;
