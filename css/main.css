@@ -117,11 +117,27 @@
     top: 50%;
   }
 }
+@keyframes formSlideBack {
+  from {
+    top: 50%;
+  }
+  to {
+    top: -50%;
+  }
+}
 @keyframes increaseOpacity {
   from {
     opacity: 0;
   }
   to {
     opacity: 0.8;
+  }
+}
+@keyframes decreaseOpacity {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -22,3 +22,15 @@ function newBookAnimation(){
     overlay.style.animation = 'increaseOpacity 1.5s forwards';
     newBookForm.style.animation = 'formSlideTop 1.5s forwards';
 }
+
+const cancelButton = document.querySelector(".cancelButton");
+cancelButton.addEventListener("click", removeBookForm);
+overlay.addEventListener("click", removeBookForm);
+
+function removeBookForm(){
+    newBookForm.style.animation = 'formSlideBack 1.5s forwards';
+    overlay.style.animation = 'decreaseOpacity 1.5s forwards';
+    setTimeout(function(){
+        overlay.style.visibility = 'hidden';
+    }, 1500)
+}
