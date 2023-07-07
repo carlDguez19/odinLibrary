@@ -4,13 +4,15 @@ let overlay = document.querySelector(".overlay");
 const newBookForm = document.querySelector(".bookForm");
 const bookSec = document.querySelector(".bookSection");
 
+//create elements outside
+
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
     this.bookInfo = function() {
-        return `"${this.title}" by ${this.author} \n${this.pages}.pgs`
+        return `"${this.title}"\nby ${this.author}\n${this.pages}.pgs`
     }
 }
 
@@ -34,12 +36,14 @@ function removeBookForm(){
     setTimeout(function(){
         overlay.style.visibility = 'hidden';
     }, 1500)
+    setTimeout(clearInputFields, 1500);
 }
 
 const subButton = document.querySelector(".submitButton");
 subButton.addEventListener("click",function(){
-    getInputAppendBookObject;//might need parenthesis
+    getInputAppendBookObject();
     //create a new book card
+    createBookCardElements();
 })
 
 function getInputAppendBookObject(){//this should be activated as soon as 
@@ -51,11 +55,50 @@ function getInputAppendBookObject(){//this should be activated as soon as
     if(titleInput && authorInput && pagesInput){//so long as title and author have some input then push into array
         bookArr.push(newBook);
     }
-    for(let i = 0; i < bookArr.length; i++){//test code
-        console.log(bookArr[i]);
-    }
 }
 
 function createBookCardElements(){
+    //this creates the read checkbox for the book card
+    let book = bookArr[(bookArr.length)-1];
+    for(let key in bookArr[-1]){
+        console.log(bookArr[-1][key]);
+    }
 
+    const div = document.createElement('div');
+    const label = document.createElement('label');
+    label.textContent = "Read";
+    label.setAttribute('for', 'readCard');
+    const input = document.createElement('input');
+    input.setAttribute('type', 'checkbox');
+    input.setAttribute('id', 'readCard');
+    // let readBool = book.read;
+    input.checked = document.getElementById("read").checked;
+    div.appendChild(label);
+    div.appendChild(input);
+
+    //this creates the book info for the rest of the book card
+    const pages = document.createElement('p');
+    pages.textContent = `${book.pages} pgs`;
+    const author = document.createElement('p');
+    author.textContent = `${book.author}`;
+    const title = document.createElement('p');
+    title.textContent = `${book.title}`;
+    const sampleBookCard = document.createElement('div');
+    sampleBookCard.setAttribute('class', 'sampleBook');
+
+    //this adds everything to the card
+    sampleBookCard.appendChild(title);
+    sampleBookCard.appendChild(author);
+    sampleBookCard.appendChild(pages);
+    sampleBookCard.appendChild(div);
+    bookSec.appendChild(sampleBookCard);
+
+    removeBookForm();
+}
+
+function clearInputFields(){
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("pages").value = "";
+    document.getElementById("read").checked = false;
 }
