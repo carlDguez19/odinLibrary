@@ -2,6 +2,7 @@
 let bookArr = [];
 let overlay = document.querySelector(".overlay");
 const newBookForm = document.querySelector(".bookForm");
+const bookSec = document.querySelector(".bookSection");
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -33,4 +34,28 @@ function removeBookForm(){
     setTimeout(function(){
         overlay.style.visibility = 'hidden';
     }, 1500)
+}
+
+const subButton = document.querySelector(".submitButton");
+subButton.addEventListener("click",function(){
+    getInputAppendBookObject;//might need parenthesis
+    //create a new book card
+})
+
+function getInputAppendBookObject(){//this should be activated as soon as 
+    let titleInput = document.getElementById("title").value;
+    let authorInput = document.getElementById("author").value;
+    let pagesInput = document.getElementById("pages").value;
+    let readInput = document.getElementById("read").value;
+    let newBook = new Book(titleInput, authorInput, pagesInput, readInput);
+    if(titleInput && authorInput && pagesInput){//so long as title and author have some input then push into array
+        bookArr.push(newBook);
+    }
+    for(let i = 0; i < bookArr.length; i++){//test code
+        console.log(bookArr[i]);
+    }
+}
+
+function createBookCardElements(){
+
 }
