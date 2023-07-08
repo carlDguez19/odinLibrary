@@ -3,7 +3,6 @@ let bookArr = [];
 let overlay = document.querySelector(".overlay");
 const newBookForm = document.querySelector(".bookForm");
 const bookSec = document.querySelector(".bookSection");
-
 //create elements outside
 
 function Book(title, author, pages, read){
@@ -42,15 +41,14 @@ function removeBookForm(){
 const subButton = document.querySelector(".submitButton");
 subButton.addEventListener("click",function(){
     //this needs to be within an if statement that determines if all the proper input fields are filled(method???)
-    getInputAppendBookObject();
-    //create a new book card
-    createBookCardElements();
+    if(checkInputsHaveValue()){
+        getInputAppendBookObject();
+        //create a new book card
+        createBookCardElements();
+    }
 })
 
 function getInputAppendBookObject(){//this should be activated as soon as
-    document.getElementById("title").defaultValue = "UNKNOWN";
-    document.getElementById("author").defaultValue = "UNKNOWN";
-    document.getElementById("pages").defaultValue = 1;
     let titleInput = document.getElementById("title").value;
     let authorInput = document.getElementById("author").value;
     let pagesInput = document.getElementById("pages").value;
@@ -103,4 +101,14 @@ function clearInputFields(){
     document.getElementById("author").value = "";
     document.getElementById("pages").value = "";
     document.getElementById("read").checked = false;
+}
+
+function checkInputsHaveValue(){
+    const title = document.getElementById("title");
+    const author = document.getElementById("author");
+    const pages = document.getElementById("pages");
+    if(title.value && author.value && pages.value){
+        return true;
+    }
+    return false;
 }
