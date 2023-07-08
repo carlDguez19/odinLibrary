@@ -41,20 +41,22 @@ function removeBookForm(){
 
 const subButton = document.querySelector(".submitButton");
 subButton.addEventListener("click",function(){
+    //this needs to be within an if statement that determines if all the proper input fields are filled(method???)
     getInputAppendBookObject();
     //create a new book card
     createBookCardElements();
 })
 
-function getInputAppendBookObject(){//this should be activated as soon as 
+function getInputAppendBookObject(){//this should be activated as soon as
+    document.getElementById("title").defaultValue = "UNKNOWN";
+    document.getElementById("author").defaultValue = "UNKNOWN";
+    document.getElementById("pages").defaultValue = 1;
     let titleInput = document.getElementById("title").value;
     let authorInput = document.getElementById("author").value;
     let pagesInput = document.getElementById("pages").value;
     let readInput = document.getElementById("read").value;
     let newBook = new Book(titleInput, authorInput, pagesInput, readInput);
-    if(titleInput && authorInput && pagesInput){//so long as title and author have some input then push into array
-        bookArr.push(newBook);
-    }
+    bookArr.push(newBook);
 }
 
 function createBookCardElements(){
@@ -66,7 +68,7 @@ function createBookCardElements(){
 
     const div = document.createElement('div');
     const label = document.createElement('label');
-    label.textContent = "Read";
+    label.textContent = "Read: ";
     label.setAttribute('for', 'readCard');
     const input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
