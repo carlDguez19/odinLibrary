@@ -119,9 +119,9 @@ const sectionB = document.querySelector(".bookSection");
 
 sectionB.addEventListener("click", (e) => {
     if(e.target.tagName === 'SPAN'){
-        //get info from clicked card
-        //remove from array
-        //remove parent(bookCard)
+        //get info from clicked card DONE
+        //remove from array DONE
+        e.parentNode.parentNode.removeChild(e.target.parentNode);//remove parent(bookCard) might need .target at first e
     }
 });
 
@@ -131,4 +131,24 @@ function getBookInfo(closeButton){
         bookInfoArr.push(nextSibling.innerText);
         nextSibling = nextSibling.nextElementSibling;
     }
+}
+
+function traverseBookArr(){
+    for(let i = 0; i < bookArr.length; i++){
+        if(compareBookandInfo(bookArr[i])){
+            //remove from arr and return
+        }
+    }
+}
+
+function compareBookandInfo(book){
+    let counter = 0;
+    for(let key in book){
+        if(book[key] != bookInfoArr[counter]){//EMPTY BOOKINFOARR AT SOME POINT
+            return false;
+        }else{
+            counter++;
+        }
+    }
+    return true;
 }
