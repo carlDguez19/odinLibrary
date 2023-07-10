@@ -1,5 +1,6 @@
 //need to create a flip switch for the read variable to place on card
 let bookArr = [];
+let bookInfoArr = [];
 let overlay = document.querySelector(".overlay");
 const newBookForm = document.querySelector(".bookForm");
 const bookSec = document.querySelector(".bookSection");
@@ -112,3 +113,14 @@ function checkInputsHaveValue(){
     }
     return false;
 }
+
+//event delegation for close buttons on cards
+const sectionB = document.querySelector(".bookSection");
+
+sectionB.addEventListener("click", (e) => {
+    if(e.target.tagName === 'SPAN'){
+        //get info from clicked card
+        //remove from array
+        //remove parent(bookCard)
+    }
+})

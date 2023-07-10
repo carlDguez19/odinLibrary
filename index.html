@@ -24,17 +24,17 @@
         <h1>New Book</h1>
         <div>
             <label for="title">Title:</label>
-            <input type="text" id="title" minlength="1" title="Please input a title at least 1 character in length/ unknown=?" required>
+            <input type="text" id="title" minlength="1" title="Please input a title at least 1 character in length/ unknown=?" oninvalid="this.setCustomValidity('Please input a title at least 1 character in length/ unknown=?')" oninput="this.setCustomValidity('')" required>
         </div>
 
         <div>
             <label for="author">Author:</label>
-            <input type="text" id="author" minlength="1" title="Please input an author at least 1 character in length/ unknown=?" required>
+            <input type="text" id="author" minlength="1" title="Please input an author at least 1 character in length/ unknown=?" oninvalid="this.setCustomValidity('Please input an author at least 1 character in length/ unknown=?')" oninput="this.setCustomValidity('')" required>
         </div>
 
         <div>
             <label for="pages">Pages:</label>
-            <input type="number" id="pages" min="1" required>
+            <input type="number" id="pages" min="1" title="Please enter number of pages in book" oninvalid="this.setCustomValidity('Please enter number of pages in book')" oninput="this.setCustomValidity('')" required>
         </div>
 
         <div>
@@ -54,6 +54,7 @@
     </section>
     <section class="bookSection">
         <div class="sampleBook">
+            <span class="close">x</span>
             <p class="bookTitle">"Cosmos"</p>
             <p class="bookAuthor">Carl Sagan</p>
             <p class="pgs">432pgs</p>
