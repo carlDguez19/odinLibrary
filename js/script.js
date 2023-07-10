@@ -84,10 +84,14 @@ function createBookCardElements(){
     author.textContent = `${book.author}`;
     const title = document.createElement('p');
     title.textContent = `${book.title}`;
+    const closeButton = document.createElement('span');
+    closeButton.textContent = 'x';
+    closeButton.setAttribute('class', 'close');
     const sampleBookCard = document.createElement('div');
     sampleBookCard.setAttribute('class', 'sampleBook');
 
     //this adds everything to the card
+    sampleBookCard.appendChild(closeButton);
     sampleBookCard.appendChild(title);
     sampleBookCard.appendChild(author);
     sampleBookCard.appendChild(pages);
@@ -119,11 +123,23 @@ const sectionB = document.querySelector(".bookSection");
 
 sectionB.addEventListener("click", (e) => {
     if(e.target.tagName === 'SPAN'){
+        console.log("BEFORE DELETE OF ARRAY")
+        printBookArr();
         //get info from clicked card DONE
+        getBookInfo(e.target);
         //remove from array DONE
-        e.parentNode.parentNode.removeChild(e.target.parentNode);//remove parent(bookCard) might need .target at first e
+        traverseBookArr();
+        e.target.parentNode.parentNode.removeChild(e.target.parentNode);//remove parent(bookCard) might need .target at first e
+        console.log("AFTER DELETE OF ARRAY");
+        printBookArr();
     }
 });
+
+function printBookArr(){
+    for(let i = 0; i < bookArr.length; i++){
+        console.log(bookArr[i]);
+    }
+}
 
 function getBookInfo(closeButton){
     let nextSibling = closeButton.nextElementSibling;
@@ -137,14 +153,20 @@ function traverseBookArr(){
     for(let i = 0; i < bookArr.length; i++){
         if(compareBookandInfo(bookArr[i])){
             //remove from arr and return
+            bookArr.splice(i,1);
+            //also clear bookInfoArr here
+            bookInfoArr.splice(0, bookInfoArr.length);
+            return;
         }
     }
+    //insert array clear here for bookInfoArr
+    bookInfoArr.splice(0, bookInfoArr.length);
 }
 
 function compareBookandInfo(book){
     let counter = 0;
     for(let key in book){
-        if(book[key] != bookInfoArr[counter]){//EMPTY BOOKINFOARR AT SOME POINT
+        if(book[key] != bookInfoArr[counter]){
             return false;
         }else{
             counter++;
