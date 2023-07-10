@@ -123,4 +123,12 @@ sectionB.addEventListener("click", (e) => {
         //remove from array
         //remove parent(bookCard)
     }
-})
+});
+
+function getBookInfo(closeButton){
+    let nextSibling = closeButton.nextElementSibling;
+    for(let i = 0; i < 3; i++){
+        bookInfoArr.push(nextSibling.innerText);
+        nextSibling = nextSibling.nextElementSibling;
+    }
+}
